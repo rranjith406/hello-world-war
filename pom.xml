@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  	<groupId>in.javahome</groupId>
+  	<groupId>AWS</groupId>
 	<artifactId>simple-app</artifactId>
 	<packaging>war</packaging>
 	<version>1.1-SNAPSHOT</version>
