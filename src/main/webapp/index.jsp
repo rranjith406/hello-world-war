@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Hello DevOps people! from Atos_DevSecOps team</title>
+<title>Hello DevOps people! </title>
 </head>
 <body>
 	<p><h1>Hello DevOps people this is L&D program</h1></p>
