@@ -32,8 +32,7 @@ pipeline {
                 echo 'This is Deploy stage (TBD)'
                 sh 'echo Build ${BUILD_NUMBER}'
                 sshagent(['tomcat-id']) {
-                    sh 'scp target/hello-world-war-1.0.0.war ubuntu@172.31.32.178:/opt/tomcat/webapp'
-                    // some block
+                    sh 'scp -o StrictHostKeyChecking=no target/hello-world-war-1.0.0.war ubuntu@172.31.32.178:/opt/tomcat/webapps' 
                 }
             }
         }
