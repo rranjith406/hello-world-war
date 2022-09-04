@@ -33,6 +33,12 @@ pipeline {
                     sh 'pwd'
                     //sh 'mv /var/lib/jenkins/workspace/pipe/target/hello-world-war-1.0.0.war /var/lib/jenkins/workspace/pipe/target/HelloWorld-1.0.0.${BUILD_NUMBER}.war'
                     //sh 'ls -lrt /var/lib/jenkins/workspace/pipe/target/'
+                    dir('dist') {
+                        //sh 'mvn clean install -DskipTests'
+              		    //echo 'cd to dist folder'
+              		    sh 'ls -lrt'
+                    }
+                    sh 'pwd'
                     sh 'scp -o StrictHostKeyChecking=no /target/hello-world-war-1.0.0.war ubuntu@172.31.32.178:/opt/tomcat/webapps'
                     //sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Java_src_PipelineJob/target/hello-world-war-1.0.0.war ubuntu@172.31.32.178:/opt/tomcat/webapps'
                 }
