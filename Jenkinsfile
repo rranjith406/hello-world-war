@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Test Stage') {
             steps {
-                sh 'mvn clean test'
+                sh 'mvn test'
             }
         }
         stage('Deploy Stage') {
