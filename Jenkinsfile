@@ -32,6 +32,7 @@ pipeline {
                 sshagent(['tomcat-id']) {
                     sh 'pwd'
                     sh 'mv /var/lib/jenkins/workspace/pipe/target/hello-world-war-1.0.0.war /var/lib/jenkins/workspace/pipe/target/hello-world-war-1.0.0.${BUILD_NUMBER}.war'
+                    sh 'ls -lrt /var/lib/jenkins/workspace/pipe/target/'
                     sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/pipe/target/hello-world-war-1.0.0.${BUILD_NUMBER}.war ubuntu@172.31.32.178:/opt/tomcat/webapps' 
                 }
             }
