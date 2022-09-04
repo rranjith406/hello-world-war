@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Hello DevOps people! </title>
+<title>Hello DevOps Students-2022! </title>
 </head>
 <body>
 	<p><h1>Hello DevOps people this is L&D program</h1></p>
