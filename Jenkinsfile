@@ -31,6 +31,10 @@ pipeline {
             steps {
                 echo 'This is Deploy stage (TBD)'
                 sh 'echo Build ${BUILD_NUMBER}'
+                sshagent(['tomcat-id']) {
+                    scp target/hello-world-war-1.*.war ubuntu@172.31.32.178:/opt/tomcat/webapps/
+                    // some block
+                }
             }
         }
     }
