@@ -3,7 +3,7 @@
 <title>Hello DevOps Students-2022! </title>
 </head>
 <body>
-	<p><h1>Hello ----Ranjith---------- DevOps people this is L&D program - Students-2022!--------------------------------</h1></p>
+	<p><h1>Hello DevOps students, Welcome to L&D program - Students-2022!--------------------------------</h1></p>
 	<p>This is DevOps class------------------------------------------------------------------------------------------------------------------</p> 
 	<b><h2>CI/CD</h2></b>
 	<p>
