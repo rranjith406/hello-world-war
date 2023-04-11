@@ -1,4 +1,4 @@
-Hello World! (WAR-style)
+Hello World! (WAR- file style)
 test
 ===============
 
