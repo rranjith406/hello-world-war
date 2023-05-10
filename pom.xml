@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.helloworld.app</groupId>
-	<artifactId>hello-world-war</artifactId>
-	<version>1.1-SNAPSHOT</version>
+	<artifactId>World-war</artifactId>
+	<version>1.1-Release</version>
 	<packaging>war</packaging>
 	<name>Hello World Web Application Repository</name>
 	<description>Simplest possible Java Webapp</description>
