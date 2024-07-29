@@ -4,7 +4,7 @@
 
 	<groupId>com.helloworld.app</groupId>
 	<artifactId>World-war</artifactId>
-	<version>1.1-Release</version>
+	<version>1.2-Release</version>
 	<packaging>war</packaging>
 	<name>Hello World Web Application Repository</name>
 	<description>Simplest possible Java Webapp</description>
