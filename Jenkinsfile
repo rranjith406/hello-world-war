@@ -1,37 +1,47 @@
 pipeline {
     agent any
-
     stages {
-        stage('Checkout src') {
+        stage('SCM checkout') {
             steps {
-                echo 'Java-Maven-war-project '
-                echo "Branch_Name: ${env.GIT_BRANCH}" 
-                //echo "${env.BRANCH_NAME}"
-                //echo "${env.GIT_BRANCH}"//This will give me the Branch name
-                git 'https://github.com/rranjith406/hello-world-war.git'
-                sh 'ls -lrt'
-                dir('dist') {
-              		//sh 'mvn clean install -DskipTests'
-              		echo 'cd to dist folder'
-              		sh 'ls -lrt'
-                }
+                echo 'Checking out remote repo to Jenkins Local Workspace'
+                git branch: 'master', url: 'https://github.com/ranjith-vedansh/java-hello-world-war.git'
             }
         }
         stage('Build Stage') {
             steps {
-                sh 'mvn clean install'
+                echo 'Building WAR file from source code'
+                sh 'mvn clean package'
+                sh 'ls -lrt target'
             }
         }
         stage('Test Stage') {
             steps {
-                sh 'mvn clean test'
+                echo 'Executing Unit Tests'
+                // sh 'mvn test'
             }
         }
         stage('Deploy Stage') {
             steps {
-                echo 'This is Deploy stage (TBD)'
-                sh 'echo Build ${BUILD_NUMBER}'
+                echo 'Deploying WAR to remote Web Server'
+
+                sshagent(['ec2-ssh-creds']) {
+                    // Example Deployment (update with your server details)
+                    //sh 'scp target/*.war ubuntu@13.233.145.108:/opt/tomcat/webapps/'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.233.145.108 ls -lrt'
+                    sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@13.233.145.108:/opt/tomcat/webapps/'
+                    echo '✅ Copy completed successfully.'
+		            sh 'ssh ubuntu@13.233.145.108 "sudo systemctl restart tomcat"'
+                }
             }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline execution completed'
+        }
+        failure {
+            echo 'Pipeline execution failed'
         }
     }
 }
